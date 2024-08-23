@@ -1,0 +1,13 @@
+export const LISTING_POSTS_PAGE = "/listing";
+export const LOGIN_PAGE = "/sign-in";
+export const REGISTRATION_PAGE = "/sign-up";
+export const AGENT_PROFILE_PAGE = "/profile";
+export const AGENT_ACCOUNT_SETTINGS_PAGE = "/account-settings";
+export const ADD_HOTEL_PAGE = "/add-hotel";
+export const PRICING_PLAN_PAGE = "/pricing-plan";
+export const SINGLE_POST_PAGE = "/post";
+export const PRIVACY_PAGE = "/privacy";
+export const CHANGE_PASSWORD_PAGE = "/change-password";
+export const FORGET_PASSWORD_PAGE = "/forget-password";
+export const AGENT_IMAGE_EDIT_PAGE = "change-image";
+export const AGENT_PASSWORD_CHANGE_PAGE = "change-password";
