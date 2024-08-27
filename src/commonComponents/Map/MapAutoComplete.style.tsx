@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { themeGet } from '@styled-system/theme-get'; // Ensure you have this package installed if you're using it
+import styled from "styled-components";
+import { themeGet } from "@styled-system/theme-get";
 
 export const ItemWrapper = styled.div`
   padding: 20px;
@@ -15,6 +15,6 @@ export const ItemWrapper = styled.div`
   strong {
     font-size: 15px;
     font-weight: 400;
-    color: ${themeGet('text.0', '#2C2C2C')};
+    color: ${themeGet("text.0", "#2C2C2C")};
   }
 `;

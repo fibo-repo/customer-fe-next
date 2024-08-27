@@ -4,7 +4,6 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from "@/styles/navbar.module.css";
 import { FaUserCircle } from "react-icons/fa";
 import Logo from "./logo";
-// import { useRouter } from "next/router";
 import { LOGIN_PAGE } from "../library/constants/routeUrls";
 import { useRouter } from "next/navigation";
 import Img from "../../assets/images/bys_final_logo.png";

@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { Button } from "../app/main.style";
-import SearchArea from "./Search/Search";
+import SearchArea from "./Search/search";
 
 const Home = () => {
   useEffect(() => {
@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <>
       <SearchArea />
-      <PopularLocation />
+      {/* <PopularLocation /> */}
       <Button>Hello</Button>
     </>
   );

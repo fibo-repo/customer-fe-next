@@ -1,7 +1,7 @@
 "use client";
 
 import "react-dates/initialize";
-import { DateRangePicker } from "react-dates";
+import { DateRangePicker, FocusedInputShape } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import React, { useState, useEffect } from "react";
 import { ReactDatesStyleWrapper } from "./ReactDates.style";
@@ -14,7 +14,7 @@ export interface DateRangePickerBoxProps {
   endDateId?: string;
   startDatePlaceholderText?: string;
   endDatePlaceholderText?: string;
-  disabled?: boolean | "START_DATE" | "END_DATE";
+  disabled?: boolean | "startDate" | "endDate"; // Updated to camel case
   showClearDates?: boolean;
   isRTL?: boolean;
   orientation?: "horizontal" | "vertical";
@@ -35,13 +35,14 @@ export interface DateRangePickerBoxProps {
   endDate?: Moment | null;
   item?: CalendarItem;
 }
+
 export interface DefaultCalenderProps {
   className?: string;
-  startDateId?: string;
-  endDateId?: string;
+  startDateId: string;
+  endDateId: string;
   startDatePlaceholderText?: string;
   endDatePlaceholderText?: string;
-  disabled?: boolean | "START_DATE" | "END_DATE";
+  disabled?: boolean | "startDate" | "endDate"; // Updated to camel case
   showClearDates?: boolean;
   isRTL?: boolean;
   orientation?: "horizontal" | "vertical";
@@ -58,14 +59,11 @@ export interface DefaultCalenderProps {
     setStartDate?: string;
     setEndDate?: string;
   }) => void;
-  startDate?: Moment | null;
-  endDate?: Moment | null;
-  focusedInput?: "startDate" | "endDate" | null;
-  onFocusChange?: (focusedInput: "startDate" | "endDate" | null) => void;
-  onDatesChange?: ({
-    startDate,
-    endDate,
-  }: {
+  startDate: Moment | null;
+  endDate: Moment | null;
+  focusedInput: FocusedInputShape | null;
+  onFocusChange: (focusedInput: FocusedInputShape | null) => void;
+  onDatesChange: (arg: {
     startDate: Moment | null;
     endDate: Moment | null;
   }) => void;
@@ -74,8 +72,8 @@ export interface DefaultCalenderProps {
 
 const DateRangePickerBox: React.FC<DateRangePickerBoxProps> = ({
   className,
-  startDateId,
-  endDateId,
+  startDateId = "start_unique_id",
+  endDateId = "end_unique_id",
   startDatePlaceholderText,
   endDatePlaceholderText,
   disabled,
@@ -93,13 +91,13 @@ const DateRangePickerBox: React.FC<DateRangePickerBoxProps> = ({
   updateSearchData,
   startDate: initialStartDate,
   endDate: initialEndDate,
-  item, // Added this line
+  item,
 }) => {
   const dateFormat = item?.format || "YYYY-MM-DD"; // Use item.format for date format
 
-  const [focusedInput, setFocusedInput] = useState<
-    "startDate" | "endDate" | null
-  >(null);
+  const [focusedInput, setFocusedInput] = useState<FocusedInputShape | null>(
+    null
+  );
   const [startDate, setStartDate] = useState<Moment | null>(
     initialStartDate ? moment(initialStartDate, dateFormat) : null
   );
@@ -125,7 +123,7 @@ const DateRangePickerBox: React.FC<DateRangePickerBoxProps> = ({
     }
   };
 
-  const onFocusChange = (focusedInput: "startDate" | "endDate" | null) => {
+  const onFocusChange = (focusedInput: FocusedInputShape | null) => {
     setFocusedInput(focusedInput);
   };
 
@@ -142,16 +140,16 @@ const DateRangePickerBox: React.FC<DateRangePickerBoxProps> = ({
   }
 
   const defaultCalenderProps: DefaultCalenderProps = {
-    startDateId: startDateId || "start_unique_id",
-    endDateId: endDateId || "end_date_unique_id",
+    startDateId,
+    endDateId,
     startDate: startDate || null,
     endDate: endDate || null,
-    focusedInput,
-    onFocusChange,
+    focusedInput: focusedInput || null,
+    onFocusChange: onFocusChange,
     onDatesChange: onDateChange,
     startDatePlaceholderText,
     endDatePlaceholderText,
-    disabled,
+    disabled, // Pass the correctly typed disabled prop
     isRTL,
     showClearDates: showClearDates || false,
     orientation,

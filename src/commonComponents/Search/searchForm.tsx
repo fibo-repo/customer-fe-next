@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NextRouter, useRouter } from "next/router";
+import { NextRouter } from "next/router";
 import { FaMapMarkerAlt, FaRegCalendar, FaUserFriends } from "react-icons/fa";
 import { Button, notification } from "antd";
 import { setStateToUrl } from "../../library/helpers/url_handler";
@@ -18,6 +18,7 @@ import DateRangePickerBox from "@/UiComponent/DatePicker/ReactDates";
 import MapAutoComplete from "../Map/MapAutoComplete";
 import ViewWithPopup from "@/UiComponent/ViewWithPopup/ViewWithPopup";
 import InputIncDec from "@/UiComponent/InputIncDec/InputIncDec";
+import { useRouter } from "next/navigation";
 
 export interface City {
   id: number;
@@ -30,15 +31,6 @@ export interface RoomGuest {
   kids?: number;
   infants?: number;
   pets?: number;
-}
-
-{
-  /* <MapAutoComplete
-  list={cityData}
-  label="Area"
-  value={city}
-  setFieldValue={setCity}
-/>; */
 }
 
 export interface SearchDate {
@@ -209,8 +201,9 @@ const SearchForm: React.FC<SearchFormProps> = ({
             <Button type="default">
               <span>
                 Guest{" "}
-                {roomGuest?.guest > 0 &&
-                  `: ${roomGuest.guest + roomGuest.kids}`}
+                {roomGuest?.guest > 0 && roomGuest?.kids
+                  ? `: ${roomGuest.guest + roomGuest.kids}`
+                  : `:${roomGuest.guest}`}
               </span>
             </Button>
           }

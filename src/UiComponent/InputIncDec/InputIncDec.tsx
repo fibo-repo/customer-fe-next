@@ -8,7 +8,7 @@ interface InputIncDecProps extends Omit<InputProps, "size"> {
   className?: string;
   increment: () => void;
   decrement: () => void;
-  value: number;
+  value: number | undefined;
 }
 
 const InputIncDec: React.FC<InputIncDecProps> = ({

@@ -1,5 +1,4 @@
 import React, { useState, CSSProperties } from "react";
-import { useRouter } from "next/router";
 import Heading from "@/UiComponent/Heading/Heading";
 import Text from "@/UiComponent/Text/Text";
 import GlideCarousel, {
@@ -7,6 +6,10 @@ import GlideCarousel, {
 } from "@/UiComponent/GlideCarousel/GlideCarousel";
 import BannerWrapper, { SearchWrapperBox } from "./Search.style";
 import SearchForm, { City, RoomGuest, SearchDate } from "./searchForm";
+import { useRouter } from "next/navigation";
+import Banner1 from "@/assets/images/banner/banner_bys-01.jpg";
+import Banner2 from "@/assets/images/banner/banner_bys-02.png";
+import Image from "next/image";
 
 interface SearchAreaProps {
   searchTitleStyle?: CSSProperties;
@@ -20,6 +23,7 @@ const SearchArea: React.FC<SearchAreaProps> = ({
   searchStateStyle,
 }) => {
   const router = useRouter();
+  console.log("router: ", router);
   const [city, setCity] = useState<City>({
     id: 0,
     name: "",
@@ -48,10 +52,10 @@ const SearchArea: React.FC<SearchAreaProps> = ({
           numberOfBullets={0}
         >
           <GlideSlide>
-            <img src="/images/banner/banner_bys-01.jpg" alt="Banner 1" />
+            <Image src={Banner1} alt="Banner 1" height={280} />
           </GlideSlide>
           <GlideSlide>
-            <img src="/images/banner/banner_bys-02.png" alt="Banner 2" />
+            <Image src={Banner2} alt="Banner 2" />
           </GlideSlide>
         </GlideCarousel>
       </BannerWrapper>

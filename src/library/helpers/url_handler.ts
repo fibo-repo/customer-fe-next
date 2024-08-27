@@ -77,13 +77,17 @@ export function getStateFromUrl(location: LocationData): StateData {
         case "date_range":
           const date = urlData[key];
           if (date) {
-            const [setStartDate, setEndDate] = date.split(",");
+            const [setStartDate, setEndDate] =
+              typeof date === "string" ? date.split(",") : [date];
             state[key] = { setStartDate, setEndDate };
           }
           break;
         case "amenities":
         case "property":
-          state[key] = urlData[key]?.split(",") || [];
+          state[key] =
+            typeof urlData[key] === "string"
+              ? (urlData[key] as string)?.split(",")
+              : [];
           break;
         case "room":
         case "guest":
@@ -91,7 +95,11 @@ export function getStateFromUrl(location: LocationData): StateData {
           state[key] = urlData[key] || "";
           break;
         case "price":
-          const [min, max] = urlData[key]?.split(",")?.map(Number) || [0, 100];
+          const [min, max] =
+            typeof urlData[key] === "string"
+              ? (urlData[key] as string)?.split(",")?.map(Number)
+              : [0, 100];
+
           state[key] = { min, max, defaultMin: 0, defaultMax: 100 };
           break;
         case "location_lat":
