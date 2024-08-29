@@ -61,14 +61,26 @@ const SearchInput: React.FC<SearchInputProps> = ({
       />
 
       {showList && activeSearch.length > 0 && (
-        <ItemWrapper>
-          {activeSearch.map((item) => (
-            <li key={item.id} onClick={() => handleClick(item)}>
-              <FaMapMarkerAlt />
-              {item.name}
-            </li>
-          ))}
-        </ItemWrapper>
+        <div
+          style={{
+            position: "absolute",
+            backgroundColor: "#f7f7f7",
+            width: "100%",
+            zIndex: "50",
+            border: "1px solid #ccc",
+          }}
+        >
+          {activeSearch?.slice(0, 5).map((city, index) => {
+            return (
+              <ItemWrapper key={index} onClick={() => handleClick(city)}>
+                <span>
+                  <FaMapMarkerAlt className="map-marker" />
+                </span>
+                <span>{city.name}</span>
+              </ItemWrapper>
+            );
+          })}
+        </div>
       )}
     </div>
   );

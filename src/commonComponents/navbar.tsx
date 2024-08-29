@@ -6,7 +6,7 @@ import { FaUserCircle } from "react-icons/fa";
 import Logo from "./logo";
 import { LOGIN_PAGE } from "../library/constants/routeUrls";
 import { useRouter } from "next/navigation";
-import Img from "../../assets/images/bys_final_logo.png";
+import Img from "@/assets/images/bys_final_logo.png";
 
 const Navbar = () => {
   const [userName, setUserName] = useState("");

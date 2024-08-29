@@ -24,6 +24,7 @@ interface HeadingProps
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   mt?: string | number;
   mb?: string | number;
+  style?: React.CSSProperties; // Added to support inline styles
 }
 
 const HeadingWrapper = styled("p")<HeadingProps>(
@@ -36,8 +37,10 @@ const HeadingWrapper = styled("p")<HeadingProps>(
   themed("Heading")
 );
 
-const Heading: React.FC<HeadingProps> = ({ content, ...props }) => (
-  <HeadingWrapper {...props}>{content}</HeadingWrapper>
+const Heading: React.FC<HeadingProps> = ({ content, style, ...props }) => (
+  <HeadingWrapper style={style} {...props}>
+    {content}
+  </HeadingWrapper>
 );
 
 Heading.defaultProps = {

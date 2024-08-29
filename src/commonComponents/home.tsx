@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import SearchArea from "./Search/search";
 import TopPropeties from "./TopProperties/TopPropeties";
+import PopularLocation from "@/UiComponent/PopularLocation/PopularLocation";
 
 const Home = () => {
   useEffect(() => {
@@ -15,7 +16,7 @@ const Home = () => {
     <>
       <SearchArea />
       <TopPropeties />
-      {/* <PopularLocation /> */}
+      <PopularLocation />
     </>
   );
 };

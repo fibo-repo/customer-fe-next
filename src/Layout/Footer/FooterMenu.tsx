@@ -1,44 +1,49 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Menu } from 'antd';
+import React from "react";
+import Link from "next/link";
+import { Menu, MenuProps } from "antd";
 
-const navigations = [
+interface NavigationItem {
+  label: React.ReactNode;
+  key: string;
+}
+
+const navigations: NavigationItem[] = [
   {
     label: (
-      <NavLink to="/about-us" target="_blank">
-        About us
-      </NavLink>
+      <Link href="/about-us" passHref legacyBehavior>
+        <a target="_blank">About us</a>
+      </Link>
     ),
-    key: 'about',
+    key: "about",
   },
   {
     label: (
-      <NavLink to="/privacy-policy" target="_blank">
-        Privacy Policy
-      </NavLink>
+      <Link href="/privacy-policy" passHref legacyBehavior>
+        <a target="_blank">Privacy Policy</a>
+      </Link>
     ),
-    key: 'privacy',
+    key: "privacy",
   },
   {
     label: (
-      <NavLink to="/payment-terms" target="_blank">
-        Payment Terms
-      </NavLink>
+      <Link href="/payment-terms" passHref legacyBehavior>
+        <a target="_blank">Payment Terms</a>
+      </Link>
     ),
-    key: 'payment',
+    key: "payment",
   },
   {
     label: (
-      <NavLink to="/term-of-use" target="_blank">
-        Term Of Use
-      </NavLink>
+      <Link href="/term-of-use" passHref legacyBehavior>
+        <a target="_blank">Term Of Use</a>
+      </Link>
     ),
-    key: 'termOfUse',
+    key: "termOfUse",
   },
 ];
 
-const FooterMenu = () => {
-  return <Menu items={navigations} />;
+const FooterMenu: React.FC = () => {
+  return <Menu items={navigations as MenuProps["items"]} />;
 };
 
 export default FooterMenu;

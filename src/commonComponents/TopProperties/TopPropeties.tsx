@@ -4,7 +4,7 @@ import moment from "moment";
 import React from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import LocationWrapper, { CarouselSection } from "../Location/Location.style";
-import Container from "../Container/Container";
+import Container from "../../UiComponent/Container/Container";
 import GlideCarousel, {
   GlideSlide,
 } from "@/UiComponent/GlideCarousel/GlideCarousel";

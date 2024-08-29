@@ -1,7 +1,7 @@
-import React from 'react';
-import Logo from 'components/UI/Logo/Logo';
-import Footers from 'components/Footer/Footer';
-import FooterMenu from './FooterMenu';
+import React from "react";
+import Footers from "components/Footer/Footer";
+import FooterMenu from "./FooterMenu";
+import Logo from "@/commonComponents/logo";
 
 const Footer = () => {
   return (

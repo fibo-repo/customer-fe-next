@@ -5,10 +5,11 @@ import GlideCarousel, {
   GlideSlide,
 } from "@/UiComponent/GlideCarousel/GlideCarousel";
 import BannerWrapper, { SearchWrapperBox } from "./Search.style";
-import SearchForm, { City, RoomGuest, SearchDate } from "./searchForm";
+import SearchForm, { City } from "./searchForm";
 import Banner1 from "@/assets/images/banner/banner_bys-01.jpg";
 import Banner2 from "@/assets/images/banner/banner_bys-02.png";
 import Image from "next/image";
+import { RoomGuest, SearchDate } from "@/types/commonTypes";
 
 interface SearchAreaProps {
   searchTitleStyle?: CSSProperties;

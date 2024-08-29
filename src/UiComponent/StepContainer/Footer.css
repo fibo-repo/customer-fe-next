@@ -1,0 +1,95 @@
+.container {
+  text-align: center;
+  margin-top: 80px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.step {
+  background: #f9f9f9;
+  border: 1px solid #d8d0d0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 40px 10px;
+  margin: 10px;
+  width: 29%;
+  min-width: 270px;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;  */
+  text-align: center;
+}
+
+/* .icon {
+  height: '20px';
+  width: '30px';
+  width: 22%; 
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
+
+.icon {
+  height: 50px; /* Set your desired height */
+  width: 50px; /* Set your desired width */
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .step {
+    width: 45%; /* Two items per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .step {
+    width: 100%; /* One item per row */
+  }
+
+  h1 {
+    font-size: 1.5em; /* Adjusted font size for smaller screens */
+  }
+
+  .icon {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.steps-wrapper {
+  margin-top: 80px;
+}
+.container.container-steps {
+  text-align: center;
+  margin-top: 0px;
+  display: flex;
+  padding: 20px 10px;
+}

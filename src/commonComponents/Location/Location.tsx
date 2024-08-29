@@ -1,19 +1,19 @@
 import React from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import Loader from "components/Loader/Loader";
-import Heading from "components/UI/Heading/Heading";
-import SectionTitle from "components/SectionTitle/SectionTitle";
-import ImageCard from "components/ImageCard/ImageCard";
+import { CarouselSection } from "./Location.style";
+import Heading from "@/UiComponent/Heading/Heading";
 import GlideCarousel, {
   GlideSlide,
-} from "components/UI/GlideCarousel/GlideCarousel";
-import useDataApi from "library/hooks/useDataApi";
-import { CarouselSection } from "./Location.style";
+} from "@/UiComponent/GlideCarousel/GlideCarousel";
+import Loader from "../Loader/Loader";
+import SectionTitle from "@/UiComponent/SectionTitle/SectionTitle";
+import ImageCard from "@/UiComponent/ImageCard/ImageCard";
+import { data } from "@/library/data/location";
+import { StaticImageData } from "next/image";
 
-// Define the shape of the data you're fetching from /data/location.json
 interface LocationImage {
   id: number;
-  url: string;
+  img: StaticImageData;
 }
 
 interface LocationData {
@@ -60,8 +60,6 @@ const carouselOptions = {
 };
 
 const LocationGrid: React.FC = () => {
-  const { data } = useDataApi<LocationData[]>("/data/location.json");
-
   return (
     <>
       <SectionTitle title={<Heading content="Coming Soon..." />} />
@@ -75,11 +73,10 @@ const LocationGrid: React.FC = () => {
             options={carouselOptions}
           >
             <>
-              {data.map((post: LocationData, index: number) => (
+              {(data as LocationData[]).map((post, index) => (
                 <GlideSlide key={index}>
                   <ImageCard
-                    link="listing"
-                    imageSrc={post.locationImage.url}
+                    imageSrc={post.locationImage.img}
                     title={post.city}
                     meta={`${post.numberOfPost} properties`}
                   />

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { NextRouter } from "next/router";
 import { FaMapMarkerAlt, FaRegCalendar, FaUserFriends } from "react-icons/fa";
 import { Button, notification } from "antd";
 import { setStateToUrl } from "../../library/helpers/url_handler";
@@ -19,19 +18,12 @@ import MapAutoComplete from "../Map/MapAutoComplete";
 import ViewWithPopup from "@/UiComponent/ViewWithPopup/ViewWithPopup";
 import InputIncDec from "@/UiComponent/InputIncDec/InputIncDec";
 import { useRouter } from "next/navigation";
-import { SearchDate } from "@/types/commonTypes";
+import { RoomGuest, SearchDate } from "@/types/commonTypes";
 
 export interface City {
   id: number;
   name: string;
   zoneIds?: number[];
-}
-
-export interface RoomGuest {
-  guest: number;
-  kids?: number;
-  infants?: number;
-  pets?: number;
 }
 
 interface SearchFormProps {
