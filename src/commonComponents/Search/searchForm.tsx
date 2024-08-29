@@ -19,6 +19,7 @@ import MapAutoComplete from "../Map/MapAutoComplete";
 import ViewWithPopup from "@/UiComponent/ViewWithPopup/ViewWithPopup";
 import InputIncDec from "@/UiComponent/InputIncDec/InputIncDec";
 import { useRouter } from "next/navigation";
+import { SearchDate } from "@/types/commonTypes";
 
 export interface City {
   id: number;
@@ -33,13 +34,7 @@ export interface RoomGuest {
   pets?: number;
 }
 
-export interface SearchDate {
-  setStartDate?: string | Date | null;
-  setEndDate?: string | Date | null;
-}
-
 interface SearchFormProps {
-  location: string | NextRouter;
   direction?: boolean;
   city: City;
   setCity: (city: City) => void;
@@ -53,7 +48,6 @@ interface SearchFormProps {
 interface QueryParams {
   date_range: SearchDate;
   guest: number;
-  location: string | NextRouter;
   cityId: number;
   zoneIds?: number | number[];
   pets?: number;
@@ -74,7 +68,6 @@ const calendarItem: CalendarItem = {
 };
 
 const SearchForm: React.FC<SearchFormProps> = ({
-  location,
   direction,
   city,
   setCity,
@@ -136,7 +129,6 @@ const SearchForm: React.FC<SearchFormProps> = ({
     const query: QueryParams = {
       date_range: searchDate,
       guest: roomGuest.guest,
-      location,
       cityId: city.id,
     };
 
@@ -146,10 +138,8 @@ const SearchForm: React.FC<SearchFormProps> = ({
     if (roomGuest.kids) query.kids = roomGuest.kids;
 
     const search = setStateToUrl(query);
-    router.push({
-      pathname: LISTING_POSTS_PAGE,
-      query: search,
-    });
+
+    router.push(`${LISTING_POSTS_PAGE}${search}`);
   };
 
   const Wrapper = direction ? FormWrapperBox : FormWrapper;

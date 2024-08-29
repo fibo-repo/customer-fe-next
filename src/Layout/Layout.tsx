@@ -25,7 +25,8 @@ import useWindowSize from "../library/hooks/useWindowSize";
 
 const { Content } = LayoutWrapper;
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC = ({ children }: any) => {
+  // TODO : REMOVE TYPE ANY
   const location = usePathname();
   const router = useRouter();
   const { width } = useWindowSize();

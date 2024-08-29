@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { Button } from "../app/main.style";
 import SearchArea from "./Search/search";
+import TopPropeties from "./TopProperties/TopPropeties";
 
 const Home = () => {
   useEffect(() => {
@@ -14,8 +14,8 @@ const Home = () => {
   return (
     <>
       <SearchArea />
+      <TopPropeties />
       {/* <PopularLocation /> */}
-      <Button>Hello</Button>
     </>
   );
 };

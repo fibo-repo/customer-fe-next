@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from "react";
 export const LayoutContext = createContext();
 
 const initialState = {
@@ -7,12 +7,12 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'SHOW_TOP_SEARCHBAR':
+    case "SHOW_TOP_SEARCHBAR":
       return {
         ...state,
         searchVisibility: true,
       };
-    case 'HIDE_TOP_SEARCHBAR':
+    case "HIDE_TOP_SEARCHBAR":
       return {
         ...state,
         searchVisibility: false,
@@ -22,7 +22,8 @@ function reducer(state, action) {
   }
 }
 
-export default function LayoutProvider({ children }) {
+export default function LayoutProvider({ children }: any) {
+  //TODO : REMOVE TYPE ANY
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <LayoutContext.Provider value={[state, dispatch]}>

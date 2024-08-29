@@ -6,7 +6,6 @@ import GlideCarousel, {
 } from "@/UiComponent/GlideCarousel/GlideCarousel";
 import BannerWrapper, { SearchWrapperBox } from "./Search.style";
 import SearchForm, { City, RoomGuest, SearchDate } from "./searchForm";
-import { useRouter } from "next/navigation";
 import Banner1 from "@/assets/images/banner/banner_bys-01.jpg";
 import Banner2 from "@/assets/images/banner/banner_bys-02.png";
 import Image from "next/image";
@@ -22,8 +21,6 @@ const SearchArea: React.FC<SearchAreaProps> = ({
   searchDescriptionStyle,
   searchStateStyle,
 }) => {
-  const router = useRouter();
-  console.log("router: ", router);
   const [city, setCity] = useState<City>({
     id: 0,
     name: "",
@@ -52,10 +49,10 @@ const SearchArea: React.FC<SearchAreaProps> = ({
           numberOfBullets={0}
         >
           <GlideSlide>
-            <Image src={Banner1} alt="Banner 1" height={280} />
+            <Image src={Banner1} alt="Banner 1" style={{ height: "auto" }} />
           </GlideSlide>
           <GlideSlide>
-            <Image src={Banner2} alt="Banner 2" />
+            <Image src={Banner2} alt="Banner 2" style={{ height: "auto" }} />
           </GlideSlide>
         </GlideCarousel>
       </BannerWrapper>
@@ -83,7 +80,6 @@ const SearchArea: React.FC<SearchAreaProps> = ({
         </div>
         <SearchForm
           direction={true}
-          location={router}
           city={city}
           setCity={setCity}
           searchDate={searchDate}

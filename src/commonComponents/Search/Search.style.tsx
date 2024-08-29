@@ -167,7 +167,7 @@ export const FormWrapperBox = styled.div`
   }
 
   /* submit button style */
-  button[type='submit'].ant-btn {
+  button[type='button'].ant-btn {
     min-width: 100%;
     height: 60px;
     color: ${themeGet('color.1', '#ffffff')};
@@ -202,7 +202,7 @@ export const FormWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: ${themeGet('color.2', '#F7F7F7')};
+  background-color: ${themeGet("color.2", "#F7F7F7")};
   border-radius: 20px 20px 20px 20px;
   min-height: 40px;
   height: 60px;
@@ -218,11 +218,11 @@ export const FormWrapper = styled.div`
 
     border-radius: 20px 20px 20px 20px;
 
-    button[type='submit'].ant-btn {
+    button[type="button"].ant-btn {
       min-width: 100%;
       height: 60px;
-      color: ${themeGet('color.1', '#ffffff')};
-      background-color: ${themeGet('primary.0', '#4dcad2')};
+      color: ${themeGet("color.1", "#ffffff")};
+      background-color: ${themeGet("primary.0", "#4dcad2")};
       border-radius: 0 3px 3px 0;
       border: 0;
       box-shadow: none;
@@ -244,7 +244,7 @@ export const FormWrapper = styled.div`
       }
 
       &:hover {
-        background-color: ${themeGet('primary.0', '#4dcad2')};
+        background-color: ${themeGet("primary.0", "#4dcad2")};
         opacity: 0.85;
       }
     }
@@ -255,7 +255,7 @@ export const FormWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: ${themeGet('color.2', '#F7F7F7')};
+    background-color: ${themeGet("color.2", "#F7F7F7")};
     border-radius: 15px 15px 15px 15px;
     min-height: 60px;
     width: 80%;
@@ -267,12 +267,12 @@ export const FormWrapper = styled.div`
   }
 
   /* submit button style */
-  button[type='submit'].ant-btn {
+  button[type="submit"].ant-btn {
     // min-width: 157px;
     min-width: 150px;
     height: 60px;
-    color: ${themeGet('color.1', '#ffffff')};
-    background-color: ${themeGet('primary.0', '#4dcad2')};
+    color: ${themeGet("color.1", "#ffffff")};
+    background-color: ${themeGet("primary.0", "#4dcad2")};
     // border-radius: 0 3px 3px 0;
     border-radius: 20px 20px 20px 20px;
 
@@ -296,7 +296,7 @@ export const FormWrapper = styled.div`
     }
 
     &:hover {
-      background-color: ${themeGet('primary.0', '#4dcad2')};
+      background-color: ${themeGet("primary.0", "#4dcad2")};
       opacity: 0.85;
     }
   }
