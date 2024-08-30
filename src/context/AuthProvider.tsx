@@ -8,7 +8,7 @@ interface User {
   roles: string[];
 }
 
-interface AuthContextType {
+export interface AuthContextType {
   loggedIn: boolean;
   user: User | null;
   signIn: (params?: any) => void;

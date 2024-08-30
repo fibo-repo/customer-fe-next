@@ -9,7 +9,7 @@ import Wrapper, {
   SignUpFormWrapper,
   SignupBannerWrapper,
 } from "./auth.style";
-import Navbar from "@/commonComponents/navbar";
+import Navbar from "@/commonComponents/NavbarHost";
 import SignUpForm from "./signUpForm";
 import Link from "next/link";
 import Image from "next/image";

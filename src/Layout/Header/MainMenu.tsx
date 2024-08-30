@@ -1,11 +1,11 @@
-import React from 'react';
-// import { NavLink } from 'react-router-dom';
-import { Menu } from 'antd';
-import {} from // HOME_PAGE,
-// LISTING_POSTS_PAGE,
-// AGENT_PROFILE_PAGE,
-// PRICING_PLAN_PAGE,
-'settings/constant';
+"use client";
+
+import React from "react";
+import { Menu } from "antd";
+
+interface MainMenuProps {
+  className?: string;
+}
 
 // const HostButton = () => {
 //   return (
@@ -61,7 +61,7 @@ import {} from // HOME_PAGE,
 //   );
 // };
 
-const menuItems = [
+const menuItems: any = [
   // {
   //   label: <NavLink to={HOME_PAGE}>Hotels</NavLink>,
   //   key: 'menu-1',
@@ -84,7 +84,7 @@ const menuItems = [
   // },
 ];
 
-const MainMenu = ({ className }) => {
+const MainMenu: React.FC<MainMenuProps> = ({ className }) => {
   return <Menu className={className} items={menuItems} />;
 };
 

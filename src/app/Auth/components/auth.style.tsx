@@ -54,7 +54,7 @@ export const OnboardingWrapperUpdate = styled.div`
 `;
 
 export const FormWrapper = styled.div`
-  width: 50%;
+  width: 35%;
   padding: 60px 41px;
   @media (min-width: 1441px) {
     padding: 81px 130px;
@@ -155,7 +155,7 @@ export const FormWrapper = styled.div`
 `;
 
 export const SignUpFormWrapper = styled.div`
-  width: 50%;
+  width: 35%;
   padding: 60px 41px;
   @media (min-width: 1441px) {
     padding: 81px 130px;

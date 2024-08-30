@@ -1,4 +1,5 @@
 import { API_BASE_URI } from "@/library/constants/api";
+import { LOGIN_PAGE } from "@/library/constants/routeUrls";
 import axios from "axios";
 
 const API_BASE_URL = `${API_BASE_URI}/location`;
@@ -22,7 +23,7 @@ const LocationService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -50,7 +51,7 @@ const LocationService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -75,7 +76,7 @@ const LocationService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -87,7 +88,8 @@ const LocationService = {
   },
 
   // Function to post data to the API
-  postData: async (data: any) => { // TODO : REMOVE TYPE ANY
+  postData: async (data: any) => {
+    // TODO : REMOVE TYPE ANY
     const headers = {
       Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
       "Content-Type": "application/json",
@@ -102,7 +104,7 @@ const LocationService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;

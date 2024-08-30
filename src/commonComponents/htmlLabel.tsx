@@ -11,7 +11,19 @@ import {
 } from "styled-system";
 import { base, themed, BaseStyleProps } from "../UiComponent/baseUi";
 
-const LabelWrapper = styled.label<BaseStyleProps>(
+const shouldForwardProp = (prop: string) => {
+  return ![
+    "fontFamily",
+    "fontWeight",
+    "textAlign",
+    "lineHeight",
+    "letterSpacing",
+  ].includes(prop);
+};
+
+const LabelWrapper = styled.label.withConfig({
+  shouldForwardProp,
+})<BaseStyleProps>(
   base,
   fontFamily,
   fontWeight,
@@ -30,7 +42,6 @@ interface HtmlLabelProps {
   textAlign?: string | number | (string | number)[];
   lineHeight?: string | number | (string | number)[];
   letterSpacing?: string | number | (string | number)[];
-  // Include any other props you might be passing
   [key: string]: any;
 }
 

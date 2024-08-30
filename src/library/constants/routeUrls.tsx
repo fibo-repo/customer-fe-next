@@ -1,6 +1,6 @@
 export const LISTING_POSTS_PAGE = "/listing";
-export const LOGIN_PAGE = "/sign-in";
-export const REGISTRATION_PAGE = "/sign-up";
+export const LOGIN_PAGE = "/Auth/sign-in";
+export const REGISTRATION_PAGE = "/Auth/sign-up";
 export const AGENT_PROFILE_PAGE = "/profile";
 export const AGENT_ACCOUNT_SETTINGS_PAGE = "/account-settings";
 export const ADD_HOTEL_PAGE = "/add-hotel";

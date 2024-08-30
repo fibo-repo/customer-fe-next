@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import React from "react";
 import Home from "../commonComponents/home";
+import "./global.css";
 
 export const metadata: Metadata = {
   title: "BidYourStay: Your Ultimate Homestay Booking Platform",

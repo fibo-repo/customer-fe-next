@@ -13,63 +13,6 @@ import Heading from "@/UiComponent/Heading/Heading";
 // import { PostPlaceholder } from "@/UiComponent/ContentLoader/ContentLoader";
 import SectionGrid from "../SectionGrid/SectionGrid";
 
-interface PropertyDetails {
-  propertyDetailsId: number;
-  detailsName: string;
-  detailsValue: number;
-}
-
-interface PropertyBasePrice {
-  originalPrice: number;
-  type: string;
-}
-
-interface PropertyTotalPrice {
-  totalPrice: number;
-  basicPrice: number;
-  breakdown: {
-    serviceFee: number;
-    tax: {
-      total: number;
-      percentage: string;
-    };
-    basic: {
-      total: number;
-      type: string;
-      base: number;
-    };
-    "Price Per Additional Guest"?: {
-      total: number;
-      numberOfGuests: number;
-      type: string;
-      base: number;
-    };
-  };
-}
-
-interface OverallRating {
-  totalReviews: number;
-  overallRating: string;
-}
-
-interface PropertyData {
-  id: number;
-  hostId: number;
-  title: string;
-  propertyType: string;
-  state: string;
-  city: string;
-  thumbnailUrl: string;
-  latitude: number;
-  longitude: number;
-  categories: string[];
-  imagesUrls: string | null;
-  propertyDetails: PropertyDetails[];
-  propertyBasePrice: PropertyBasePrice;
-  propertyTotalPrice: PropertyTotalPrice;
-  overallRating: OverallRating;
-}
-
 interface RoomGuest {
   guest: number;
 }
@@ -79,7 +22,6 @@ interface SearchDate {
   setEndDate: string;
 }
 
-// Define the carousel options type
 interface CarouselOptions {
   type: string;
   perView: number;
@@ -788,8 +730,6 @@ const carouselOptions: CarouselOptions = {
 };
 
 const TopPropeties: React.FC = () => {
-
-  // Room guest and search date types
   const roomGuest: RoomGuest = { guest: 2 };
 
   const searchDate: SearchDate = {
@@ -798,34 +738,32 @@ const TopPropeties: React.FC = () => {
   };
 
   return (
-    <div>
-      <LocationWrapper>
-        <Container fluid={true}>
-          <SectionTitle title={<Heading content="Top Properties" />} />
-          <CarouselSection>
-            <GlideCarousel
-              carouselSelector="coming_soon"
-              prevButton={<IoIosArrowBack />}
-              nextButton={<IoIosArrowForward />}
-              options={carouselOptions}
-            >
-              {jsonData.map((data, index) => (
-                <GlideSlide key={index}>
-                  <SectionGrid
-                    columnWidth={[1]}
-                    datas={[data]}
-                    totalItem={jsonData.length}
-                    searchDate={searchDate}
-                    roomGuest={roomGuest}
-                    // placeholder={<PostPlaceholder />}
-                  />
-                </GlideSlide>
-              ))}
-            </GlideCarousel>
-          </CarouselSection>
-        </Container>
-      </LocationWrapper>
-    </div>
+    <LocationWrapper>
+      <Container fluid={true}>
+        <SectionTitle title={<Heading content="Top Properties" />} />
+        <CarouselSection>
+          <GlideCarousel
+            carouselSelector="coming_soon"
+            prevButton={<IoIosArrowBack />}
+            nextButton={<IoIosArrowForward />}
+            options={carouselOptions}
+          >
+            {jsonData.map((data, index) => (
+              <GlideSlide key={index}>
+                <SectionGrid
+                  columnWidth={[1]}
+                  datas={[data]}
+                  totalItem={jsonData.length}
+                  searchDate={searchDate}
+                  roomGuest={roomGuest}
+                  // placeholder={<PostPlaceholder />}
+                />
+              </GlideSlide>
+            ))}
+          </GlideCarousel>
+        </CarouselSection>
+      </Container>
+    </LocationWrapper>
   );
 };
 

@@ -34,7 +34,7 @@ const navigations: NavigationItem[] = [
   },
   {
     label: (
-      <Link href="/term-of-use" passHref legacyBehavior>
+      <Link href="/terms-of-use" passHref legacyBehavior>
         <a target="_blank">Term Of Use</a>
       </Link>
     ),

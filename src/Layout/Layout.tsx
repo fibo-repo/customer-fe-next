@@ -1,8 +1,7 @@
 "use client";
 
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, ReactNode } from "react";
 import { Layout as LayoutWrapper } from "antd";
-import LayoutProvider from "context/LayoutProvider";
 import {
   LISTING_POSTS_PAGE,
   LOGIN_PAGE,
@@ -18,30 +17,30 @@ import {
   AGENT_IMAGE_EDIT_PAGE,
   AGENT_PASSWORD_CHANGE_PAGE,
 } from "../library/constants/routeUrls";
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import useWindowSize from "../library/hooks/useWindowSize";
+import LayoutProvider from "@/context/LayoutProvider";
+import Header from "@/Layout/Header/Header";
+import FooterMain from "@/Layout/FooterMain/FooterMain";
 
 const { Content } = LayoutWrapper;
 
-const Layout: React.FC = ({ children }: any) => {
-  // TODO : REMOVE TYPE ANY
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = usePathname();
-  const router = useRouter();
+  // const router = useRouter();
   const { width } = useWindowSize();
   const singlePageUrlFromConst = SINGLE_POST_PAGE.split("/");
   const singlePageUrlFormLocation = location.split("/");
 
-  useEffect(() => {
-    if (
-      location !== LOGIN_PAGE &&
-      location !== REGISTRATION_PAGE
-      // Add other checks here if necessary
-    ) {
-      router.push("/landing");
-    }
-  }, [location, router]);
+  // useEffect(() => {
+  //   if (location !== LOGIN_PAGE && location !== REGISTRATION_PAGE) {
+  //     router.push("/");
+  //   }
+  // }, [location, router]);
 
   return (
     <LayoutProvider>
@@ -66,7 +65,7 @@ const Layout: React.FC = ({ children }: any) => {
             <div style={{ height: "33px" }} />
           ) : (
             <Fragment>
-              <Footer />
+              <FooterMain />
               {singlePageUrlFormLocation[1] === singlePageUrlFromConst[1] && (
                 <Fragment>
                   {width && width < 1200 && <div style={{ height: "74px" }} />}

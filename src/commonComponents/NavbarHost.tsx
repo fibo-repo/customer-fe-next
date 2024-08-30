@@ -3,12 +3,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "@/styles/navbar.module.css";
 import { FaUserCircle } from "react-icons/fa";
-import Logo from "./logo";
+import Logo from "./Logo/Logo";
 import { LOGIN_PAGE } from "../library/constants/routeUrls";
 import { useRouter } from "next/navigation";
-import Img from "@/assets/images/bys_final_logo.png";
+import BysLogo from "@/assets/images/bys_final_logo.png";
 
-const Navbar = () => {
+const NavbarHost = () => {
   const [userName, setUserName] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -105,7 +105,7 @@ const Navbar = () => {
   return (
     <div className={styles.navbar}>
       <div style={{ margin: "18px" }}>
-        <Logo withLink linkTo="/" src={Img} title="Bid your Stay" />
+        <Logo withLink linkTo="/" src={BysLogo} title="Bid your Stay" width={125}/>
       </div>
 
       {loggedIn && (
@@ -133,4 +133,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarHost;

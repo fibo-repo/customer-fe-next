@@ -4,17 +4,18 @@ import React from "react";
 import Link from "next/link";
 import { Divider } from "antd";
 // import SocialLogin from "../components/socialLogin";
-import Navbar from "@/commonComponents/navbar";
+import Navbar from "@/commonComponents/NavbarHost";
+import SignInForm from "../components/signInForm";
+import Image from "next/image";
+import SignInBanner from "@/assets/images/otp_screen_updated.png";
+import { REGISTRATION_PAGE } from "@/library/constants/routeUrls";
 import Wrapper, {
   BannerWrapper,
   FormWrapper,
   Text,
   Title,
   TitleInfo,
-} from "./auth.style";
-import SignInForm from "../components/signInForm";
-import Image from "next/image";
-import SignInBanner from "@/assets/images/otp_screen_updated.png";
+} from "./Auth.style";
 
 const SignIn = () => {
   return (
@@ -37,7 +38,7 @@ const SignIn = () => {
         {/* <SocialLogin /> */}
         <Text>
           Don&apos;t Have an Account?&nbsp;
-          <Link href="/sign-up">Register</Link>
+          <Link href={REGISTRATION_PAGE}>Register</Link>
         </Text>
       </FormWrapper>
       <BannerWrapper>

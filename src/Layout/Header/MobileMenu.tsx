@@ -1,46 +1,50 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Menu } from 'antd';
-import { useContext } from 'react';
-import { AuthContext } from 'context/AuthProvider';
-// import {
-//   // LISTING_POSTS_PAGE,
-//   // PRICING_PLAN_PAGE,
-//   AGENT_ACCOUNT_SETTINGS_PAGE,
-// } from 'settings/constant';
+"use client";
 
-const MobileMenu = ({ className, onClick }) => {
-  // auth context
-  const { logOut } = useContext(AuthContext);
-  const loggedIn = localStorage.getItem('userDetails') ? true : false;
-  let navigate = useNavigate();
+import React from "react";
+import { useRouter } from "next/navigation";
+import { Menu } from "antd";
+import { useAuth } from "@/library/hooks/useAuthContext";
+import { LOGIN_PAGE } from "@/library/constants/routeUrls";
+
+interface MobileMenuProps {
+  className?: string;
+  onClick?: () => void;
+}
+
+const MobileMenu: React.FC<MobileMenuProps> = ({ className, onClick }) => {
+  // Auth context
+  const { logOut } = useAuth();
+  const loggedIn =
+    typeof window !== "undefined" && localStorage.getItem("userDetails")
+      ? true
+      : false;
+  const router = useRouter();
 
   const goToMyBids = () => {
-    navigate(`/customer/my-bids`);
+    router.push(`/customer/my-bids`);
   };
 
   const navigations = [
     {
       label: loggedIn && <button onClick={goToMyBids}>My Bids</button>,
-      key: 'login',
+      key: "login",
     },
     {
       label: loggedIn && (
-        <button onClick={() => navigate('/customer/myBookings')}>
+        <button onClick={() => router.push("/customer/myBookings")}>
           My Bookings
         </button>
       ),
-      key: 'my_bookings',
+      key: "my_bookings",
     },
     {
       label: loggedIn && (
-        <button onClick={() => navigate('/property-registration')}>
+        <button onClick={() => router.push("/property-registration")}>
           List Your Property
         </button>
       ),
-      key: 'list_property',
+      key: "list_property",
     },
-
     {
       label: loggedIn && (
         <button
@@ -48,20 +52,20 @@ const MobileMenu = ({ className, onClick }) => {
             e.stopPropagation();
             e.preventDefault();
             localStorage.clear();
-            navigate('/sign-in');
+            router.push(LOGIN_PAGE);
             logOut();
           }}
         >
           Log Out
         </button>
       ),
-      key: 'logout',
+      key: "logout",
     },
   ];
 
   return (
     <Menu
-      style={{ paddingTop: '0px' }}
+      style={{ paddingTop: "0px" }}
       className={className}
       items={navigations}
       onClick={onClick}

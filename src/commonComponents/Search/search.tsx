@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, CSSProperties } from "react";
 import Heading from "@/UiComponent/Heading/Heading";
 import Text from "@/UiComponent/Text/Text";
@@ -18,9 +20,24 @@ interface SearchAreaProps {
 }
 
 const SearchArea: React.FC<SearchAreaProps> = ({
-  searchTitleStyle,
-  searchDescriptionStyle,
-  searchStateStyle,
+  searchTitleStyle = {
+    color: "#2C2C2C",
+    fontSize: "28px",
+    lineHeight: "30px",
+    marginBottom: "9px",
+  },
+  searchDescriptionStyle = {
+    color: "#2C2C2C",
+    fontSize: "15px",
+    lineHeight: "25px",
+    marginBottom: "20px",
+  },
+  searchStateStyle = {
+    color: "#2C2C2C",
+    fontSize: "20px",
+    lineHeight: "25px",
+    marginBottom: "30px",
+  },
 }) => {
   const [city, setCity] = useState<City>({
     id: 0,
@@ -94,24 +111,4 @@ const SearchArea: React.FC<SearchAreaProps> = ({
   );
 };
 
-SearchArea.defaultProps = {
-  searchTitleStyle: {
-    color: "#2C2C2C",
-    fontSize: ["20px", "24px", "28px"] as unknown as string | number,
-    lineHeight: ["28px", "30px", "30px"] as unknown as string | number,
-    marginBottom: "9px",
-  },
-  searchDescriptionStyle: {
-    color: "#2C2C2C",
-    fontSize: "15px",
-    lineHeight: ["25px", "25px", "18px"] as unknown as string | number,
-    marginBottom: "20px",
-  },
-  searchStateStyle: {
-    color: "#2C2C2C",
-    fontSize: "20px",
-    lineHeight: ["25px", "25px", "18px"] as unknown as string | number,
-    marginBottom: "30px",
-  },
-};
 export default SearchArea;

@@ -1,4 +1,5 @@
 import { API_BASE_URI } from "@/library/constants/api";
+import { LOGIN_PAGE } from "@/library/constants/routeUrls";
 import axios from "axios";
 import { isEmpty } from "lodash";
 const API_BASE_URL = `${API_BASE_URI}/property`;
@@ -24,7 +25,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -48,7 +49,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -72,7 +73,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -97,7 +98,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -121,7 +122,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -148,7 +149,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -174,7 +175,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -201,7 +202,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -229,7 +230,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -256,7 +257,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -281,7 +282,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -323,7 +324,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -389,7 +390,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -418,7 +419,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -447,7 +448,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -476,7 +477,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -495,7 +496,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -520,7 +521,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -551,7 +552,7 @@ const PropertyService = {
           if (error?.response?.status === 403) {
             localStorage.clear();
             sessionStorage.clear();
-            window.open("/sign-in", "_self");
+            window.open(LOGIN_PAGE, "_self");
           }
         });
       return response?.data;
@@ -577,7 +578,7 @@ const PropertyService = {
             console.log("error: ", error);
             // localStorage.clear();
             // sessionStorage.clear();
-            // window.open('/sign-in', '_self');
+            // window.open('/Auth/sign-in', '_self');
           }
         });
       return response?.data;

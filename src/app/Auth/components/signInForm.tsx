@@ -10,6 +10,7 @@ import FormControl from "@/commonComponents/formControl";
 import { FieldWrapper } from "./auth.style";
 import { API_BASE_URI } from "@/library/constants/api";
 import { useRouter } from "next/navigation";
+import { REGISTRATION_PAGE } from "@/library/constants/routeUrls";
 
 type OnSubmitData = {
   Otp: string;
@@ -62,7 +63,7 @@ export default function SignInForm() {
           description: "User doesn't exist. Please signup first.",
         });
         setTimeout(() => {
-          router.push("/sign-up");
+          router.push(REGISTRATION_PAGE);
         }, 2000);
       } else {
         notification.error({

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styled from "styled-components";
 import {
@@ -22,12 +24,26 @@ interface HeadingProps
     LetterSpacingProps {
   content: string | React.ReactNode;
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  mt?: string | number;
-  mb?: string | number;
-  style?: React.CSSProperties; // Added to support inline styles
+  $mt?: string | number;
+  $mb?: string | number;
+  $fontWeight?: string | number;
+  style?: React.CSSProperties;
 }
 
-const HeadingWrapper = styled("p")<HeadingProps>(
+// Filtering out styled-system props from being passed to DOM elements
+const HeadingWrapper = styled("p").withConfig({
+  shouldForwardProp: (prop) =>
+    ![
+      "$mt",
+      "$mb",
+      "$fontWeight",
+      "fontFamily",
+      "fontWeight",
+      "textAlign",
+      "lineHeight",
+      "letterSpacing",
+    ].includes(prop),
+})<HeadingProps>(
   base,
   fontFamily,
   fontWeight,
@@ -37,17 +53,25 @@ const HeadingWrapper = styled("p")<HeadingProps>(
   themed("Heading")
 );
 
-const Heading: React.FC<HeadingProps> = ({ content, style, ...props }) => (
-  <HeadingWrapper style={style} {...props}>
+const Heading: React.FC<HeadingProps> = ({
+  content,
+  style,
+  as = "h2",
+  $mt = 0,
+  $mb = 0,
+  $fontWeight = 700,
+  ...props
+}) => (
+  <HeadingWrapper
+    as={as}
+    $mt={$mt}
+    $mb={$mb}
+    $fontWeight={$fontWeight}
+    style={style}
+    {...props}
+  >
     {content}
   </HeadingWrapper>
 );
-
-Heading.defaultProps = {
-  as: "h2",
-  mt: 0,
-  mb: 0,
-  fontWeight: 700,
-};
 
 export default Heading;

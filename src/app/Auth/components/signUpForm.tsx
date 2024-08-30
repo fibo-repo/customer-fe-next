@@ -9,6 +9,7 @@ import FormControl from "@/commonComponents/formControl";
 import { MdLockOpen } from "react-icons/md";
 import { API_BASE_URI } from "@/library/constants/api";
 import { useRouter } from "next/navigation";
+import { LOGIN_PAGE, REGISTRATION_PAGE } from "@/library/constants/routeUrls";
 
 const SignUpForm = () => {
   const [otpEnabled, setOTPEnabled] = useState(false);
@@ -54,7 +55,7 @@ const SignUpForm = () => {
             description: "User already exist . Please signin.",
           });
           setTimeout(() => {
-            router.push("/sign-in");
+            router.push(LOGIN_PAGE);
           }, 2000);
         }
 
@@ -92,7 +93,7 @@ const SignUpForm = () => {
           description: "An error occurred while verifying OTP.",
         });
         setTimeout(() => {
-          router.push("/sign-up");
+          router.push(REGISTRATION_PAGE);
         }, 2000);
       }
     } catch (error) {

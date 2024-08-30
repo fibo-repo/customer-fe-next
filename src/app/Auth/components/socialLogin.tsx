@@ -34,7 +34,7 @@
 //             description: response.data.responseInformation.responseMessage,
 //           });
 //           setTimeout(() => {
-//             navigate("/sign-up");
+//             navigate(REGISTRATION_PAGE);
 //           }, 2000);
 //         } else {
 //           const jwtToken = response.data.result[0].jwtToken;
