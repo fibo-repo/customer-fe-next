@@ -1,12 +1,5 @@
-import { initializeApp } from 'firebase/app';
-
-import React, {
-  createContext,
-  // useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { initializeApp } from "firebase/app";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import {
   getAuth,
   signInWithPopup,
@@ -17,19 +10,19 @@ import {
   RecaptchaVerifier,
   signInWithPhoneNumber,
   signOut,
-} from 'firebase/auth';
-import { getDatabase, ref, set } from 'firebase/database';
-import { useNavigate } from 'react-router-dom';
+} from "firebase/auth";
+import { getDatabase, ref, set } from "firebase/database";
+import { useNavigate } from "react-router-dom";
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBq_eXyohux2Hn9s3Qge52b652yDu23Mg4',
-  authDomain: 'eng-lightning-411714.firebaseapp.com',
-  projectId: 'eng-lightning-411714',
-  storageBucket: 'eng-lightning-411714.appspot.com',
-  messagingSenderId: '823849634640',
-  appId: '1:823849634640:web:34cfabf251af3a062afa55',
-  measurementId: 'G-3CWRGB017Z',
-  databaseUrl: 'https://eng-lightning-411714-default-rtdb.firebaseio.com/',
+  apiKey: "AIzaSyBq_eXyohux2Hn9s3Qge52b652yDu23Mg4",
+  authDomain: "eng-lightning-411714.firebaseapp.com",
+  projectId: "eng-lightning-411714",
+  storageBucket: "eng-lightning-411714.appspot.com",
+  messagingSenderId: "823849634640",
+  appId: "1:823849634640:web:34cfabf251af3a062afa55",
+  measurementId: "G-3CWRGB017Z",
+  databaseUrl: "https://eng-lightning-411714-default-rtdb.firebaseio.com/",
 };
 
 const FirebaseContext = createContext(null);
@@ -60,7 +53,7 @@ const FireAuth = (props) => {
     signOut(auth)
       .then(() => {})
       .catch((error) => {
-        console.log('error', error);
+        console.log("error", error);
       });
   };
 
@@ -99,10 +92,10 @@ const FireAuth = (props) => {
   const setupCaptcha = async (number) => {
     const recaptchaVerifier = new RecaptchaVerifier(
       auth,
-      'recaptcha-container',
+      "recaptcha-container",
       {
-        size: 'invisible',
-      },
+        size: "invisible",
+      }
     );
 
     try {
@@ -118,7 +111,7 @@ const FireAuth = (props) => {
   const otpLogin = async (code) => {
     try {
       await confirm.confirm(code);
-      navigate('/');
+      navigate("/");
     } catch (error) {
       // User couldn't sign in (bad verification code?)
       // ...

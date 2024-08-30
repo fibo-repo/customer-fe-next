@@ -3,8 +3,9 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Menu } from "antd";
-import { useAuth } from "@/library/hooks/useAuthContext";
+// import { useAuth } from "@/library/hooks/useAuthContext";
 import { LOGIN_PAGE } from "@/library/constants/routeUrls";
+// import { AuthContext } from "@/context/AuthProvider";
 
 interface MobileMenuProps {
   className?: string;
@@ -12,8 +13,6 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ className, onClick }) => {
-  // Auth context
-  const { logOut } = useAuth();
   const loggedIn =
     typeof window !== "undefined" && localStorage.getItem("userDetails")
       ? true
@@ -53,7 +52,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ className, onClick }) => {
             e.preventDefault();
             localStorage.clear();
             router.push(LOGIN_PAGE);
-            logOut();
           }}
         >
           Log Out

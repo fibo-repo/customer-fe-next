@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { themeGet } from '@styled-system/theme-get';
+import styled from "styled-components";
+import { themeGet } from "@styled-system/theme-get";
 
 const HeaderWrapper = styled.header`
   width: 100%;
@@ -39,7 +39,7 @@ const HeaderWrapper = styled.header`
             }
 
             h3 {
-              color: ${themeGet('color.1', '#ffffff')};
+              color: ${themeGet("color.1", "#ffffff")};
             }
           }
         }
@@ -48,10 +48,10 @@ const HeaderWrapper = styled.header`
           li {
             a {
               &.active {
-                color: ${themeGet('color.1', '#ffffff')};
+                color: ${themeGet("color.1", "#ffffff")};
               }
               &:hover {
-                color: ${themeGet('color.1', '#ffffff')};
+                color: ${themeGet("color.1", "#ffffff")};
               }
             }
           }
@@ -71,7 +71,7 @@ const HeaderWrapper = styled.header`
             }
 
             h3 {
-              color: ${themeGet('color.1', '#ffffff')};
+              color: ${themeGet("color.1", "#ffffff")};
             }
           }
         }
@@ -81,7 +81,7 @@ const HeaderWrapper = styled.header`
     &.isHeaderSticky {
       nav {
         &.is_transparent {
-          background-color: ${themeGet('color.1', '#ffffff')};
+          background-color: ${themeGet("color.1", "#ffffff")};
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 
           > div > div {
@@ -95,7 +95,7 @@ const HeaderWrapper = styled.header`
               }
 
               h3 {
-                color: ${themeGet('primary.0', '#4dcad2')};
+                color: ${themeGet("primary.0", "#4dcad2")};
               }
             }
           }
@@ -103,13 +103,13 @@ const HeaderWrapper = styled.header`
           .ant-menu {
             li {
               a {
-                color: ${themeGet('text.0', '#2C2C2C')};
+                color: ${themeGet("text.0", "#2C2C2C")};
                 &:hover {
-                  color: ${themeGet('primary.0', '#4dcad2')};
+                  color: ${themeGet("primary.0", "#4dcad2")};
                 }
                 &.active {
-                  color: ${themeGet('primary.0', '#4dcad2')};
-                  border-bottom: 3px solid ${themeGet('primary.0', '#4dcad2')};
+                  color: ${themeGet("primary.0", "#4dcad2")};
+                  border-bottom: 3px solid ${themeGet("primary.0", "#4dcad2")};
                 }
               }
             }
@@ -120,7 +120,7 @@ const HeaderWrapper = styled.header`
               li {
                 &:last-child {
                   a {
-                    color: ${themeGet('color.1', '#ffffff')};
+                    color: ${themeGet("color.1", "#ffffff")};
                   }
                 }
               }
@@ -129,7 +129,7 @@ const HeaderWrapper = styled.header`
         }
 
         &.transparent {
-          background-color: ${themeGet('color.1', '#ffffff')};
+          background-color: ${themeGet("color.1", "#ffffff")};
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 
           > div > div {
@@ -143,14 +143,14 @@ const HeaderWrapper = styled.header`
               }
 
               h3 {
-                color: ${themeGet('primary.0', '#4dcad2')};
+                color: ${themeGet("primary.0", "#4dcad2")};
               }
             }
           }
 
           .hamburg-btn {
             > span {
-              background-color: ${themeGet('text.0', '#2C2C2C')};
+              background-color: ${themeGet("text.0", "#2C2C2C")};
             }
           }
         }
@@ -168,8 +168,8 @@ export const MobileNavbar = styled.nav`
   width: 100%;
 
   &.default {
-    border-bottom: 1px solid ${themeGet('border.3', '#E6E6E6')};
-    background-color: ${themeGet('color.1', '#ffffff')};
+    border-bottom: 1px solid ${themeGet("border.3", "#E6E6E6")};
+    background-color: ${themeGet("color.1", "#ffffff")};
   }
 
   .hamburg-btn {
@@ -178,24 +178,35 @@ export const MobileNavbar = styled.nav`
     width: auto;
     height: auto;
     background-color: transparent;
+    display: flex;
+    flex-direction: column;
 
     > span {
       display: block;
-      width: 20px;
+      width: 18px;
       height: 2px;
-      margin: 4px 0;
+      margin: 0 0;
       border-radius: 5px;
-      background-color: ${themeGet('text.0', '#2C2C2C')};
-      transition: all 0.3s ease;
+      background-color: ${themeGet("text.0", "#2C2C2C")};
+      transition: all 0.4s ease;
     }
 
-    &:hover,
+    &:hover {
+      background-color: transparent;
+
+      > span {
+        width: 22px;
+        margin: 1px 0 0 0;
+        background-color: ${themeGet("primary.0", "#4dcad2")};
+      }
+    }
     &.active {
       background-color: transparent;
 
       > span {
-        width: 23px;
-        background-color: ${themeGet('primary.0', '#4dcad2')};
+        width: 20px;
+        margin: 2px;
+        background-color: ${themeGet("primary.0", "#4dcad2")};
       }
     }
 
@@ -207,10 +218,16 @@ export const MobileNavbar = styled.nav`
   &.transparent {
     position: fixed;
     z-index: 9999;
-
     .hamburg-btn {
+      padding: 4px;
       > span {
-        background-color: ${themeGet('color.1', '#ffffff')};
+        background-color: ${themeGet("color.1", "#ffffff")};
+      }
+      &:hover {
+        background-color: transparent;
+        > span {
+          background-color: #ffffff;
+        }
       }
     }
   }
@@ -239,6 +256,7 @@ export const CloseDrawer = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 20px 15px 12px;
+  cursor: pointer;
 
   > button {
     border: 0;
@@ -250,13 +268,13 @@ export const CloseDrawer = styled.div`
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-    color: ${themeGet('text.1', '#909090')};
+    color: ${themeGet("text.1", "#909090")};
     transition: all 0.3s ease;
 
     &:hover,
     &:focus {
       outline: 0;
-      color: ${themeGet('text.0', '#2C2C2C')};
+      color: ${themeGet("text.0", "#2C2C2C")};
     }
   }
 `;
@@ -265,7 +283,7 @@ export const AvatarWrapper = styled.div`
   display: flex;
   padding: 25px 35px;
   align-items: center;
-  background-color: ${themeGet('color.2', '#F7F7F7')};
+  background-color: ${themeGet("color.2", "#F7F7F7")};
 `;
 
 export const AvatarImage = styled.div`
@@ -283,7 +301,7 @@ export const AvatarImage = styled.div`
 
 export const AvatarInfo = styled.div`
   h3 {
-    color: ${themeGet('text.0', '#2C2C2C')};
+    color: ${themeGet("text.0", "#2C2C2C")};
     font-size: 15px;
     line-height: 18px;
     font-weight: 700;
@@ -291,7 +309,7 @@ export const AvatarInfo = styled.div`
   }
 
   a {
-    color: ${themeGet('text.0', '#2C2C2C')};
+    color: ${themeGet("text.0", "#2C2C2C")};
     font-size: 13px;
     line-height: 16px;
     font-weight: 400;
@@ -300,7 +318,7 @@ export const AvatarInfo = styled.div`
     &:focus {
       text-decoration: none;
       outline: 0;
-      color: ${themeGet('primary.0', '#4dcad2')};
+      color: ${themeGet("primary.0", "#4dcad2")};
     }
   }
 `;
@@ -332,9 +350,9 @@ export const NavbarSearchWrapper = styled.div`
     padding-left: 15px;
     padding-right: 30px;
     border-radius: 4px;
-    color: ${themeGet('text.0', '#2C2C2C')};
-    border: 1px solid ${themeGet('border.0', '#EBEBEB')};
-    background-color: ${themeGet('color.2', '#F7F7F7')};
+    color: ${themeGet("text.0", "#2C2C2C")};
+    border: 1px solid ${themeGet("border.0", "#EBEBEB")};
+    background-color: ${themeGet("color.2", "#F7F7F7")};
     height: 50px;
     width: 100%;
     overflow: hidden;
@@ -351,7 +369,7 @@ export const NavbarSearchWrapper = styled.div`
 
     &:hover,
     &:focus {
-      border-color: ${themeGet('primary.0', '#4dcad2')};
+      border-color: ${themeGet("primary.0", "#4dcad2")};
     }
   }
 

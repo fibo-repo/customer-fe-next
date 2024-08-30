@@ -7,10 +7,10 @@ import { Input, Button, notification } from "antd";
 import axios from "axios";
 import DOMPurify from "dompurify";
 import FormControl from "@/commonComponents/formControl";
-import { FieldWrapper } from "./auth.style";
 import { API_BASE_URI } from "@/library/constants/api";
 import { useRouter } from "next/navigation";
 import { REGISTRATION_PAGE } from "@/library/constants/routeUrls";
+import { FieldWrapper } from "./Auth.style";
 
 type OnSubmitData = {
   Otp: string;

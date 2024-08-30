@@ -108,7 +108,7 @@ const Header: React.FC = () => {
               {isLoggedIn ? (
                 <AvatarWrapper>
                   <AvatarImage>
-                    <Logo src={Avatar} />
+                    <Logo src={Avatar} width={40} />
                   </AvatarImage>
                   <AvatarInfo>
                     <Text as="h3" content={userName} />
