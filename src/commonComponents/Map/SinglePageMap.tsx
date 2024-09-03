@@ -9,56 +9,57 @@ interface Location {
   latitude: string | number;
   longitude: string | number;
   title: string;
-  imagesUrls: {
-    thumbnailUrl: string;
+  image: {
+    thumb_url: string;
   };
-  city: string;
-  state: string;
-  propertyBasePrice: {
-    discountedPrice: number;
+  location: {
+    lat: number;
+    lng: number;
+    formattedAddress: string;
   };
+  price: number;
   rating?: number;
   ratingCount?: number;
 }
 
-interface HotelMapMarkerClusterProps {
-  location: Location[];
-  clusterer: any;
+interface SingleMapDisplayProps {
+  location: Location;
   searchDate: SearchDate;
   roomGuest: RoomGuest;
 }
 
-const HotelMapMarkerCluster: React.FC<HotelMapMarkerClusterProps> = ({
+const SingleMapDisplay: React.FC<SingleMapDisplayProps> = ({
   location,
-  clusterer,
   searchDate,
   roomGuest,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [markerIndex, setMarkerIndex] = useState<number | null>(null);
 
-  const hotelData = location.map((item) => ({
-    id: item.id,
-    lat:
-      typeof item.latitude === "string"
-        ? parseFloat(item.latitude)
-        : item.latitude,
-    lng:
-      typeof item.longitude === "string"
-        ? parseFloat(item.longitude)
-        : item.longitude,
-    title: item.title,
-    thumbUrl: item.imagesUrls?.thumbnailUrl,
-    formattedAddress: `${item.city}, ${item.state}`,
-    price: item.propertyBasePrice.discountedPrice,
-    // rating: item.rating,
-    // ratingCount: item.ratingCount,
-  }));
-
   const infoWindowToggle = (index: number) => {
-    setIsOpen((prev) => !prev);
+    setIsOpen(!isOpen);
     setMarkerIndex(index);
   };
+
+  const hotelData = [
+    {
+      lat:
+        typeof location.location.lat === "number"
+          ? location.location.lat
+          : parseFloat(location.latitude as string),
+      lng:
+        typeof location.location.lng === "number"
+          ? location.location.lng
+          : parseFloat(location.longitude as string),
+      id: location.id,
+      title: location.title,
+      thumbUrl: location.image.thumb_url,
+      formattedAddress: location.location.formattedAddress,
+      price: location.price,
+      rating: location.rating,
+      ratingCount: location.ratingCount,
+    },
+  ];
 
   return (
     <>
@@ -66,7 +67,6 @@ const HotelMapMarkerCluster: React.FC<HotelMapMarkerClusterProps> = ({
         <Marker
           key={index}
           icon={MakerImage.src}
-          clusterer={clusterer}
           position={{
             lat: singlePostLocation.lat,
             lng: singlePostLocation.lng,
@@ -87,4 +87,8 @@ const HotelMapMarkerCluster: React.FC<HotelMapMarkerClusterProps> = ({
   );
 };
 
-export default HotelMapMarkerCluster;
+const HotelMapMarkerSingle: React.FC<SingleMapDisplayProps> = (props) => {
+  return <SingleMapDisplay {...props} />;
+};
+
+export default HotelMapMarkerSingle;

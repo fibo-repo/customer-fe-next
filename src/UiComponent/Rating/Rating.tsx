@@ -2,12 +2,11 @@ import React from "react";
 import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 import { RatingIconWrapper } from "./Rating.style";
 
-// Define the props interface
 interface RatingProps {
-  rating: number; // The rating score (required)
-  ratingCount?: number; // Number of ratings (optional)
-  type: "bulk" | "detailed"; // Type of rating view (required)
-  ratingFieldName?: string; // Field name for rating (optional)
+  rating?: number;
+  ratingCount?: number;
+  type: "bulk" | "detailed";
+  ratingFieldName?: string;
 }
 
 const Rating: React.FC<RatingProps> = (props) => {
@@ -27,20 +26,21 @@ const Rating: React.FC<RatingProps> = (props) => {
     }
   }
 
-  // Determine the listing condition based on rating
   let listingCondition: string;
-  if (rating === 5) {
-    listingCondition = "Awesome";
-  } else if (4 <= rating && rating < 5) {
-    listingCondition = "Good";
-  } else if (3 <= rating && rating < 4) {
-    listingCondition = "Average";
-  } else if (2 <= rating && rating < 3) {
-    listingCondition = "Bad";
-  } else if (rating >= 1) {
-    listingCondition = "Terrible";
-  } else {
-    listingCondition = "";
+  if (rating != undefined) {
+    if (rating === 5) {
+      listingCondition = "Awesome";
+    } else if (4 <= rating && rating < 5) {
+      listingCondition = "Good";
+    } else if (3 <= rating && rating < 4) {
+      listingCondition = "Average";
+    } else if (2 <= rating && rating < 3) {
+      listingCondition = "Bad";
+    } else if (rating >= 1) {
+      listingCondition = "Terrible";
+    } else {
+      listingCondition = "";
+    }
   }
 
   // Show rating count if available

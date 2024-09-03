@@ -15,8 +15,8 @@ interface FilterDrawerProps {
   handleDecrement: (type: string) => void;
   handleIncrement: (type: string) => void;
   handlePlaceClick: (id:number, name: string, value: string) => void;
-  filters: any; // Replace 'any' with a specific type if available
-  setFilters: React.Dispatch<React.SetStateAction<any>>; // Replace 'any' with a specific type if available
+  filters: any; 
+  setFilters: React.Dispatch<React.SetStateAction<any>>; 
   children: React.ReactNode;
   onSearchReset: () => void;
   onClickApply: () => void;

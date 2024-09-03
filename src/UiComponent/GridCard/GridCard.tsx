@@ -28,6 +28,7 @@ interface GridCardProps {
   state?: string;
   city?: string;
   title?: string | ReactNode;
+  location?: string;
   discountedprice?: string | null;
   editBtn?: ReactNode;
   viewDetailsBtn?: ReactNode;
@@ -35,6 +36,7 @@ interface GridCardProps {
   propertyType?: string;
   originalPrice?: string;
   propertyTotalPrice?: string;
+  price?: string; 
   propertyTotalPriceDetails?: {
     breakdown?: Breakdown;
   };
