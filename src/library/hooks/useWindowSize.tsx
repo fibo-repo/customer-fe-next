@@ -6,8 +6,8 @@ const useWindowSize = () => {
 
   const getSize = React.useCallback(
     () => ({
-      width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined,
+      width: isClient ? window.innerWidth : 0,
+      height: isClient ? window.innerHeight : 0,
     }),
     [isClient]
   );

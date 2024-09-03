@@ -1,7 +1,8 @@
 type UrlData = Record<string, string | number | null | undefined>;
 type StateData = Record<string, any>;
 type LocationData = {
-  search: string;
+  search?: string; 
+  [key: string]: any;
 };
 
 export function createUrl(urlData: UrlData): string {
@@ -16,7 +17,7 @@ export function createUrl(urlData: UrlData): string {
 }
 
 export function getUrl(location: LocationData): UrlData {
-  const data = location.search
+  const data = location?.search
     ? location.search.slice(location.search.indexOf("?") + 1).split("&")
     : [];
   const urlData: UrlData = {};

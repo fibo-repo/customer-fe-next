@@ -1,9 +1,28 @@
+// components/MapInfoWindow.tsx
 import React from 'react';
 import { InfoWindow } from '@react-google-maps/api';
-import Rating from 'components/UI/Rating/Rating';
-import GridCard from '../GridCard/GridCard';
+import Image from 'next/image';
+import Rating from '@/UiComponent/Rating/Rating';
+import GridCard from '@/UiComponent/GridCard/GridCard';
 
-const MapInfoWindow = ({ data, onCloseClick }) => {
+interface DataProp{
+  id: number;
+  lat: number;
+  lng: number;
+  formattedAddress: string;
+  title: string;
+  price: number;
+  thumbUrl?: string;
+  ratingCount?: number;
+  rating?: number;
+}
+
+interface MapInfoWindowProps {
+  data:DataProp ;
+  onCloseClick: () => void;
+}
+
+const MapInfoWindow: React.FC<MapInfoWindowProps> = ({ data, onCloseClick }) => {
   const position = { lat: data?.lat, lng: data?.lng };
 
   return (
@@ -26,7 +45,7 @@ const MapInfoWindow = ({ data, onCloseClick }) => {
           />
         }
       >
-        <img src={data?.thumbUrl} alt={data?.title} />
+        <Image src={data?.thumbUrl} alt={data?.title} />
       </GridCard>
     </InfoWindow>
   );

@@ -29,6 +29,7 @@ interface LocationData {
   country_short: string;
   locationImage: LocationImage;
   numberOfPost: number;
+  
 }
 
 const carouselOptions = {

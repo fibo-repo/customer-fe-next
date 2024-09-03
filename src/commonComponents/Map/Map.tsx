@@ -5,9 +5,30 @@ import HotelMapMarkerCluster from './ListingPageMap';
 import HotelMapMarkerSingle from './SinglePageMap';
 import { isEmpty } from 'lodash';
 
-const Map = (props) => {
-  const { multiple, location } = props;
-  const handleClustererClick = (data) => {
+interface Location {
+  id: number;
+  latitude: string;
+  longitude: string;
+  title: string;
+  imagesUrls: {
+    thumbnailUrl: string;
+  };
+  city: string;
+  state: string;
+  propertyBasePrice: {
+    discountedPrice: number;
+  };
+  rating?: number;
+  ratingCount?: number;
+}
+
+interface MapProps {
+  multiple?: boolean;
+  location: Location[];
+}
+
+const Map: React.FC<MapProps> = ({ multiple, location }) => {
+  const handleClustererClick = (data: google.maps.MarkerClusterer) => {
     const markerClusterer = data.getMarkers();
     console.log(markerClusterer);
   };
@@ -23,8 +44,8 @@ const Map = (props) => {
           id="map-multiple-location"
           zoom={7}
           center={{
-            lat: location ? location[0]?.latitude: 0,
-            lng: location? location[0]?.longitude: 0,
+            lat: location[0]?.latitude || 0,
+            lng: location[0]?.longitude || 0,
           }}
         >
           <MarkerClusterer
@@ -50,8 +71,8 @@ const Map = (props) => {
           }}
           zoom={8}
           center={{
-            lat: location[0]?.latitude,
-            lng: location[0]?.longitude,
+            lat: location[0]?.latitude || 0,
+            lng: location[0]?.longitude || 0,
           }}
         >
           <HotelMapMarkerSingle location={location} />

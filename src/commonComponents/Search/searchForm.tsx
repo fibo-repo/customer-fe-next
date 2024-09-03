@@ -21,9 +21,10 @@ import { useRouter } from "next/navigation";
 import { RoomGuest, SearchDate } from "@/types/commonTypes";
 
 export interface City {
-  id: number;
+  id: number | null;
   name: string;
   zoneIds?: number[];
+  stateId?: number;
 }
 
 interface SearchFormProps {
